@@ -5,7 +5,7 @@ library(wesanderson) #wes.palette
 
 ui <- fluidPage(
     titlePanel("Around Latvia"),
-    a("Source code:", href = "https://github.com/MartinMSPedersen/GenerativeR/tree/master/aroundlatvia"),
+    a("Source code:", href = "https://github.com/MartinMSPedersen/GenerativeR/tree/master/AroundLatvia"),
     wellPanel(
         sliderInput("seed",
                     "Seed value:",
