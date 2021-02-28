@@ -3,7 +3,7 @@ library(jsonlite) # base64_enc()
 
 ui <- fluidPage(
     titlePanel("Take 1 - Mondrian"),
-    a("Source code:", href = "https://github.com/MartinMSPedersen/take1"),
+    a("Source code:", href = "https://github.com/MartinMSPedersen/GenerativeR/tree/master/Take1"),
     wellPanel(
         sliderInput("seed",
                     "Seed value:",

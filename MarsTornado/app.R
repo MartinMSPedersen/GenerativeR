@@ -4,7 +4,7 @@ library(ggplot2)
 
 ui <- fluidPage(
   titlePanel("Mars Tornado"),
-  a("Source code:", href = "https://github.com/MartinMSPedersen/GenerativeR/marstornado"),
+  a("Source code:", href = "https://github.com/MartinMSPedersen/GenerativeR/tree/master/marstornado"),
   wellPanel(
   fluidRow(
     column(
