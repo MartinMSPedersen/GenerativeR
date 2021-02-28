@@ -1,4 +1,6 @@
 # Manic Sunday
+
+I used [Simplex Noise](https://en.wikipedia.org/wiki/Simplex_noise) from the ambient packages for this project.  
 A live version can be found at https://martinmspedersen.shinyapps.io/manicsunday/
 
 <p float="left">
