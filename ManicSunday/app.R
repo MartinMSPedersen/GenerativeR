@@ -67,7 +67,7 @@ server <- function(input, output, session) {
 
     output$png_download <- downloadHandler(
         filename = function() {
-            paste("manicsunday-",base64_enc(paste(input$seed,input$slack1,input$slack2,input$lines, sep = ":")),".png", sep="")
+            paste("manicsunday-",base64_enc(paste(input$seed,input$size,input$noise,input$speed, sep = ":")),".png", sep="")
         },
         content = function(file) {
             p <- plotInput()
@@ -76,7 +76,7 @@ server <- function(input, output, session) {
     )
     output$pdf_download <- downloadHandler(
         filename = function() {
-            paste("manicsunday-",base64_enc(paste(input$seed,input$slack1,input$slack2,input$lines, sep = ":")),".pdf", sep="")
+            paste("manicsunday-",base64_enc(paste(input$seed,input$size,input$noise,input$speed, sep = ":")),".pdf", sep="")
         },
         content = function(file) {
             p <- plotInput()
