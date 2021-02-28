@@ -5,7 +5,7 @@ library(ambient) # noise_simplex
 
 ui <- fluidPage(
     titlePanel("Manic Sunday"),
-    a("Source code:", href = "https://github.com/MartinMSPedersen/GenerativeR/tree/master/manicsunday"),
+    a("Source code:", href = "https://github.com/MartinMSPedersen/GenerativeR/tree/master/ManicSunday"),
     wellPanel(
         sliderInput("seed",
                     "Seed value:",
