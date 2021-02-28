@@ -5,6 +5,6 @@ Each sub-directory contains the full source code.
 Live version:  
 [Take 1 - Mondrian](https://martinmspedersen.shinyapps.io/Take1/)  
 [Around Latvia](https://martinmspedersen.shinyapps.io/AroundLatvia/)  
-[Mars Tornado](https://martinmspedersen.shinyapps.io/MarsTornado/)
+[Mars Tornado](https://martinmspedersen.shinyapps.io/MarsTornado/)  
 [Manic Sunday](https://martinmspedersen.shinyapps.io/ManicSunday/)
 
