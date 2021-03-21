@@ -107,7 +107,7 @@ shinyServer(function(input, output, session) {
     )
     output$pdf_download <- downloadHandler(
         filename = function() {
-            paste("highwaysauna-",base64_enc(paste(input$seed,input$layout,sep = ":")),".pdf", sep="")
+            paste("highwaysauna-",base64_enc(paste(input$seed,patch_layout,sep = ":")),".pdf", sep="")
         },
         content = function(file) {
             p <- plotInput()
