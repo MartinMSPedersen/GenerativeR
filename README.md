@@ -7,5 +7,4 @@ Live versions:
 [Around Latvia](https://martinmspedersen.shinyapps.io/AroundLatvia/)  
 [Mars Tornado](https://martinmspedersen.shinyapps.io/MarsTornado/)  
 [Manic Sunday](https://martinmspedersen.shinyapps.io/ManicSunday/)  
-[Highway Sauna](https://martinmspedersen.shinyapps.io/Highway Sauna/)
-
+[Highway Sauna](https://martinmspedersen.shinyapps.io/HighwaySauna/)
