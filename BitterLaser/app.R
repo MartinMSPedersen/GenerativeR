@@ -40,23 +40,24 @@ server <- function(input, output, session) {
         size <- 1000
 #        plot.new()
         plot.window(c(1,size), c(1,size))
-        z <- 40
+        z <- 33
         #chars <- 77824:(77824+1070)
         #chars <- setdiff(chars,78025:78034) 
         #chars <- as.numeric("0x13254"):as.numeric("0x13256")
-        chars <- as.numeric("0x13255"):as.numeric("0x13256")
-        chars <- 77824:(77824+1070)
-        chars <- setdiff(chars,78025:78034)
+#        chars <- as.numeric("0x13255"):as.numeric("0x13256")
+#        chars <- 77824:(77824+1070)
+#        chars <- setdiff(chars,78025:78034)
 
-        chars <- unlist(strsplit(intToUtf8(chars),""))
-        chars <- enc2native(chars)
+#        chars <- unlist(strsplit(intToUtf8(chars),""))
+        chars <- "E"
+#        chars <- enc2native(chars)
         for (i in 0:(size/z)*z) {
              for(j in 0:(size/z)*z) {
                  farve <- floor(lmap(i+j, 0, 2*size,0,255))
                  text(i,j, sample(chars,1),
                       cex = 3,
                       srt = sample(c(0,90,180,270),1),
-                      col = rgb(farve,farve,farve, maxColorValue = 255)
+                      #col = rgb(farve,farve,farve, maxColorValue = 255)
                  )
              }
         }
@@ -65,20 +66,26 @@ server <- function(input, output, session) {
         
     output$png_download <- downloadHandler(
         filename = function() {
-            paste("bitterlaser-",base64_enc(paste(input$seed, sep = ":")),".png", sep="")
+            paste("bitterlaser-",base64_enc(as.character(input$seed)),".png", sep="")
         },
         content = function(file) {
-            p <- plotInput()
-            ggsave(file, device = "png", width = 8, height = 8)
+            png(file)
+            plot.new()
+            par(mai=c(0,0,0,0))
+            plotInput()
+            dev.off()
         }
     )
     output$pdf_download <- downloadHandler(
         filename = function() {
-            paste("bitterlaser-",base64_enc(paste(input$seed, sep = ":")),".pdf", sep="")
+            paste("bitterlaser-",base64_enc(as.character(input$seed)),".pdf", sep="")
         },
         content = function(file) {
-            p <- plotInput()
-            ggsave(file, p, device = "pdf", paper = "A4", title = "Bitter Laser", width=8, height=8)
+            pdf(file, paper = "A4", title = "Bitter Laser", width=8, height=8)
+            plot.new()
+            par(mai=c(0,0,0,0))
+            plotInput()
+            dev.off()
         }
     )
     output$bitterlaserplot <- renderPlot({
