@@ -80,7 +80,7 @@ server <- function(input, output, session) {
         },
         content = function(file) {
             p <- plotInput()
-            ggsave(file, p, device = "pdf", paper = "A4", title = "Around Latvia", width=8, height=8)
+            ggsave(file, p, device = "pdf", paper = "A4", title = "Manic Sunday", width=8, height=8)
         }
     )
     output$manicsunday <- renderPlot({
