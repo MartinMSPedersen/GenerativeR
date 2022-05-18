@@ -2,6 +2,7 @@ library(shiny)
 library(jsonlite) # base64_enc()
 library(ggplot2)
 library(ambient) # noise_simplex
+library(svglite)
 
 ui <- fluidPage(
     titlePanel("Manic Sunday"),
@@ -29,8 +30,9 @@ ui <- fluidPage(
                     value = 25)
     ),
     fluidRow(
-        column(10,
+        column(12,
                actionButton("action1","Set random values"),
+               downloadButton("svg_download", label = "Download as svg"),
                downloadButton("png_download", label = "Download as png"),
                downloadButton("pdf_download", label = "Download as pdf"),
                offset = 1)
@@ -82,6 +84,15 @@ server <- function(input, output, session) {
             p <- plotInput()
             ggsave(file, p, device = "pdf", paper = "A4", title = "Manic Sunday", width=8, height=8)
         }
+    )
+    output$svg_download <- downloadHandler(
+      filename = function() {
+        paste("manicsunday-",base64_enc(paste(input$seed,input$size,input$noise,input$speed, sep = ":")),".svg", sep="")
+      },
+      content = function(file) {
+        p <- plotInput()
+        ggsave(file, p, device = "svg", width=8, height=8)
+      }
     )
     output$manicsunday <- renderPlot({
         print(plotInput())

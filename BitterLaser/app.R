@@ -45,12 +45,12 @@ server <- function(input, output, session) {
         #chars <- setdiff(chars,78025:78034) 
         #chars <- as.numeric("0x13254"):as.numeric("0x13256")
 #        chars <- as.numeric("0x13255"):as.numeric("0x13256")
-#        chars <- 77824:(77824+1070)
-#        chars <- setdiff(chars,78025:78034)
+        chars <- 77824:(77824+1070)
+        chars <- setdiff(chars,78025:78034)
 
-#        chars <- unlist(strsplit(intToUtf8(chars),""))
-        chars <- "E"
-#        chars <- enc2native(chars)
+        chars <- unlist(strsplit(intToUtf8(chars),""))
+#        chars <- "E"
+        chars <- enc2native(chars)
         for (i in 0:(size/z)*z) {
              for(j in 0:(size/z)*z) {
                  farve <- floor(lmap(i+j, 0, 2*size,0,255))
