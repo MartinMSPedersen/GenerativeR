@@ -1,6 +1,7 @@
 library(shiny)
 library(jsonlite) # base64_enc()
 library(ggplot2)
+library(svglite)
 
 ui <- fluidPage(
   titlePanel("Mars Tornado"),
@@ -51,11 +52,11 @@ ui <- fluidPage(
     ),
   )),
   fluidRow(
-    column(6,
+    column(12,
            actionButton("action1","Set random values"),
+           downloadButton("svg_download", label = "Download as svg"),
            downloadButton("png_download", label = "Download as png"),
-           downloadButton("pdf_download", label = "Download as pdf"),
-           offset = 3
+           downloadButton("pdf_download", label = "Download as pdf")
     )
   ),
   plotOutput("mtornado", height = "600px", width = "600px")
@@ -222,6 +223,15 @@ server <- function(input, output, session) {
   output$mtornado <- renderPlot({
     print(plotInput())
   })
+  output$svg_download <- downloadHandler(
+    filename = function() {
+      paste("marstornado-",base64_enc(paste(input$seed,input$radius1,input$radius2,input$noiselevel,input$howmany,sep = ":")),".svg", sep="")
+    },
+    content = function(file) {
+      p <- plotInput()
+      ggsave(file, device = "svg", width = 8, height = 8)
+    }
+  )
   output$png_download <- downloadHandler(
     filename = function() {
       paste("marstornado-",base64_enc(paste(input$seed,input$radius1,input$radius2,input$noiselevel,input$howmany,sep = ":")),".png", sep="")
