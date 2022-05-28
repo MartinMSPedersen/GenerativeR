@@ -2,6 +2,7 @@ library(shiny)
 library(tidyverse)
 library(jsonlite) # base64_enc
 library(patchwork)
+library(svglite)
 
 
 shinyServer(function(input, output, session) {
@@ -114,5 +115,15 @@ shinyServer(function(input, output, session) {
             ggsave(file, p, device = "pdf", paper = "A4", title = "Highway Sauna", width=8, height=8)
         }
     )
+    output$svg_download <- downloadHandler(
+      filename = function() {
+        paste("highwaysauna-",base64_enc(paste(input$seed,input$patch_layout,sep = ":")),".svg", sep="")
+      },
+      content = function(file) {
+        p <- plotInput()
+        ggsave(file, p, device = "svg", width=8, height=8)
+      }
+    )
+    
     
 })

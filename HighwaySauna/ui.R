@@ -18,6 +18,7 @@ shinyUI(fluidPage(
     fluidRow(
         column(6,
                actionButton("action1","Set random values"),
+               downloadButton("svg_download", label = "Download as svg"),
                downloadButton("png_download", label = "Download as png"),
                downloadButton("pdf_download", label = "Download as pdf"),
                offset = 3
