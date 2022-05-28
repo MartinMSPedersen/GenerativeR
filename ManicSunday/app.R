@@ -63,8 +63,9 @@ server <- function(input, output, session) {
         
         g <- ggplot(df, aes(x, y)) +
              geom_spoke(aes(angle = speedy*speed, radius = noisy*speed)) +
-             theme_void()
-        g        
+             theme_void() +
+             theme(plot.background = element_rect(color = "black", size = 1))
+        g       
     }
 
     output$png_download <- downloadHandler(
