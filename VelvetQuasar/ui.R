@@ -11,7 +11,7 @@ shinyUI(fluidPage(
             ),
             column(
                 width = 2,
-                radioButtons("layout", "Character Set:", 0:7, selected = 0)
+                radioButtons("layout", "Character Set:", 0:6, selected = 5)
             )
         )
     ),
@@ -25,7 +25,7 @@ shinyUI(fluidPage(
     ),
     fluidRow(
       column(width = 12,
-             plotOutput("quasar")
+             plotOutput("quasar", width = "800px", height = "800px")
       )
     )
 ))
